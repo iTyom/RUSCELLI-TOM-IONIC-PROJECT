@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-icon id="logo" ios="logo-apple" md="logo-android"></ion-icon>
+  <h1>appCamera</h1>
+  <h2>{{titre}}</h2>
+
+
+
+  <ion-item>
+    <ion-label floating></ion-label>
+    <ion-input type="text" [(ngModel)]="titre"></ion-input>
+  </ion-item>
+
+
+  <button ion-button block (click)="test()">ICI</button>
+
+  <button ion-button block (click)="showToast()">Appuyer ou Shake for Toast</button>
+
+  <button ion-button block (click)="doVibration()">Vibration</button>
+
+  <button ion-button block (click)="doTextToSpeech()">Text to Speech</button>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label>Premier</ion-label>
+      <ion-checkbox [(ngModel)]="Premier"></ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Deuxième</ion-label>
+      <ion-checkbox [(ngModel)]="Deuxieme" disabled="false"></ion-checkbox>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Troisième</ion-label>
+      <ion-checkbox [(ngModel)]="Troisieme"></ion-checkbox>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

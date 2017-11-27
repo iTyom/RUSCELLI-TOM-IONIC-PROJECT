@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Camera
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <button ion-button block (click)="TakePicture()">Take picture - Press it</button>
+      <img src="{{base64Image}}">
+    </ion-item>
+  </ion-list>
+</ion-content>
