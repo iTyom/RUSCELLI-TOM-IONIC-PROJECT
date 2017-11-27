@@ -14,14 +14,18 @@
 
 
 <ion-content padding>
+
         <p>Current location :</p>
         <p>Latitude</p><ion-input type="text" [(ngModel)]="location.latitude"></ion-input>
         <p>Longitude</p><ion-input type="text" [(ngModel)]="location.longitude"></ion-input>
-        <p>Watch :</p>
+
+        <p>Gyroscope :</p>
 
 
-        <button ion-button block (click)="myGyroscope()">Gyroscope</button>
+        <p>orientation X : {{locX}}</p>
+        <p>orientation Y : {{locY}}</p>
+        <p>orientationZ : {{locZ}}</p>
 
-        
+
 
 </ion-content>

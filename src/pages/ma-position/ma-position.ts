@@ -20,13 +20,15 @@ export class MaPositionPage {
     location: any= {
         latitude:'',
         longitude:'',
-        gyroscope:'',
             data: {
                 latitude:'',
                 longitude:'',
-                gyroscope:'',
             }
     };
+
+    locX: number;
+    locY: number;
+    locZ: number;
 
 
 
@@ -54,7 +56,7 @@ export class MaPositionPage {
 
 myGyroscope() {
     let options: GyroscopeOptions = {
-     frequency: 1000
+     frequency: 200
   };
 
   this.gyroscope.getCurrent(options)
@@ -66,7 +68,9 @@ myGyroscope() {
 
   this.gyroscope.watch()
      .subscribe((orientation: GyroscopeOrientation) => {
-        console.log(orientation.x, orientation.y, orientation.z, orientation.timestamp);
+        this.locX = orientation.x;
+        this.locY = orientation.y;
+        this.locZ = orientation.z;
      });
 }
 

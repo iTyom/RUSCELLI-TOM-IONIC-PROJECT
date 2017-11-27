@@ -78,7 +78,7 @@ export class ContactPage {
             this.localNotifications.schedule({
             id : 1,
             title : 'Success',
-            text : 'Notification',
+            text : 'Photo ajouté à la bibliothèque',
             at : new Date(new Date().getTime() + 3600),
             data : {mydata : 'data'}
           });
