@@ -52,7 +52,10 @@ export class ContactPage {
             this.app.base64Image = this.base64ToGallery;
 
             this.base64ToGallery.base64ToGallery(imageData, { prefix: '_img' }).then(
-               res => console.log('Saved image to gallery ', res),
+               res => {
+                   this.doNotification();
+                   console.log('Saved image to gallery ', res)
+               },
                err => console.log('Error saving image to gallery ', err)
           );
         }, (err) => {
@@ -70,6 +73,16 @@ export class ContactPage {
             (err: CaptureError) => console.error(err)
           );
   }
+
+  doNotification() {
+            this.localNotifications.schedule({
+            id : 1,
+            title : 'Success',
+            text : 'Notification',
+            at : new Date(new Date().getTime() + 3600),
+            data : {mydata : 'data'}
+          });
+        }
 }
 
 
