@@ -26,15 +26,11 @@ export class MaPositionPage {
             }
     };
 
-    locX: number;
-    locY: number;
-    locZ: number;
-
 
 
   constructor(public navCtrl: NavController, 
                 public navParams: NavParams, 
-                private geolocation: Geolocation, private gyroscope: Gyroscope) {
+                private geolocation: Geolocation) {
 
     var locationWatch:any[];
 
@@ -53,23 +49,6 @@ export class MaPositionPage {
          //data.coords.longitude
     });
 
-    let options: GyroscopeOptions = {
-    frequency: 200
-  };
-
-  this.gyroscope.getCurrent(options)
-    .then((orientation: GyroscopeOrientation) => {
-       console.log(orientation.x, orientation.y, orientation.z, orientation.timestamp);
-     })
-    .catch()
-
-
-  this.gyroscope.watch()
-     .subscribe((orientation: GyroscopeOrientation) => {
-        this.locX = orientation.x;
-        this.locY = orientation.y;
-        this.locZ = orientation.z;
-     });
 }
 
 
