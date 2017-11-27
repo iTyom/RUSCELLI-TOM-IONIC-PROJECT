@@ -95,4 +95,6 @@
     <plugin name="cordova-plugin-shake" spec="^0.6.0" />
     <plugin name="cordova-plugin-gyroscope" spec="^0.1.4" />
     <allow-navigation href="http://192.168.1.64:8100" />
+    <plugin name="cordova-plugin-media-capture" spec="^2.0.0" />
+    <plugin name="de.appplant.cordova.plugin.local-notification" spec="^0.8.5" />
 </widget>

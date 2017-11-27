@@ -19,7 +19,9 @@ import { Vibration } from '@ionic-native/vibration';
 import { TextToSpeech } from '@ionic-native/text-to-speech';
 import { Shake } from '@ionic-native/shake';
 import { Gyroscope, GyroscopeOrientation, GyroscopeOptions } from '@ionic-native/gyroscope';
-
+import { VideoCapturePlus, VideoCapturePlusOptions, MediaFile } from '@ionic-native/video-capture-plus';
+import { MediaCapture, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,9 @@ import { Gyroscope, GyroscopeOrientation, GyroscopeOptions } from '@ionic-native
     TextToSpeech,
     Shake,
     Gyroscope,
+    VideoCapturePlus,
+    MediaCapture,
+    LocalNotifications,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

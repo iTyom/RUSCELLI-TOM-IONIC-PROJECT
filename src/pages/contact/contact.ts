@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
+import { VideoCapturePlus, VideoCapturePlusOptions, MediaFile } from '@ionic-native/video-capture-plus';
+import { MediaCapture, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+
 
 
 @Component({
@@ -12,12 +16,19 @@ import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
 export class ContactPage {
         app: any = {nom: String, version: Number, complement: String};
         public base64Image: string;
+        videoUrl : String;
 
 
-        constructor(public navCtrl: NavController, private camera: Camera, private base64ToGallery: Base64ToGallery) {
-            this.app.nom = "Application regroupant des fonctionnalités";
-            this.app.version = 1.0;
-            this.app.complement = "Tom Ruscelli";
+        constructor(public navCtrl: NavController, 
+            private camera: Camera, 
+            private base64ToGallery: Base64ToGallery, 
+            private videoCapturePlus: VideoCapturePlus, 
+            private mediaCapture: MediaCapture, 
+            private localNotifications: LocalNotifications) {
+
+                this.app.nom = "Application regroupant des fonctionnalités";
+                this.app.version = 1.0;
+                this.app.complement = "Tom Ruscelli";
         }
 
 
@@ -49,6 +60,16 @@ export class ContactPage {
         });
     }
 
+    doVideo(){
+        let options: CaptureImageOptions = { limit: 3 };
+        this.mediaCapture.captureImage(options)
+          .then(
+            (data: MediaFile[]) => {
+              this.videoUrl = data[0].fullPath; // On recupère le chemin de la video
+            },
+            (err: CaptureError) => console.error(err)
+          );
+  }
 }
 
 
