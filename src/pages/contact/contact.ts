@@ -62,7 +62,7 @@ export class ContactPage {
 
     takeVideo(){
         let options: CaptureImageOptions = { limit: 3 };
-        this.mediaCapture.captureImage(options)
+        this.mediaCapture.captureVideo(options)
           .then(
             (data: MediaFile[]) => {
               this.videoUrl = data[0].fullPath; // On recupère le chemin de la video
