@@ -60,7 +60,7 @@ export class ContactPage {
         });
     }
 
-    doVideo(){
+    takeVideo(){
         let options: CaptureImageOptions = { limit: 3 };
         this.mediaCapture.captureImage(options)
           .then(

@@ -5,6 +5,8 @@ import { ToastController } from 'ionic-angular';
 import { Vibration } from '@ionic-native/vibration';
 import { TextToSpeech } from '@ionic-native/text-to-speech';
 import { Shake } from '@ionic-native/shake';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+
 
 @Component({
   selector: 'page-home',
@@ -12,8 +14,12 @@ import { Shake } from '@ionic-native/shake';
 })
 export class HomePage {
 
-    constructor(public navCtrl: NavController, private toastCtrl: ToastController, private vibration: Vibration, private tts: TextToSpeech, private shake: Shake) {
-
+    constructor(public navCtrl: NavController, 
+        private toastCtrl: ToastController, 
+        private vibration: Vibration, 
+        private tts: TextToSpeech, 
+        private shake: Shake,
+        private localNotifications: LocalNotifications) {
     }
 
 
@@ -53,10 +59,15 @@ export class HomePage {
           .catch((reason: any) => console.log(reason));
     }
 
-    
-
-    
-
+    doNotification() {
+            this.localNotifications.schedule({
+            id : 1,
+            title : 'Success',
+            text : 'Notification',
+            at : new Date(new Date().getTime() + 3600),
+            data : {mydata : 'data'}
+          });
+        }
 }
 
 
