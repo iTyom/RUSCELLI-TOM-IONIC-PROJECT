@@ -8,8 +8,9 @@
 <ion-content>
   <ion-list>
     <ion-item>
-      <button ion-button block (click)="TakePicture()">Take picture - Press it</button>
+      <button ion-button block (click)="takePicture()">Take picture - Press it</button>
       <img src="{{base64Image}}">
+      <button ion-button block (click)="savePicture()">Save picture - Press it</button>
     </ion-item>
   </ion-list>
 </ion-content>

@@ -11,7 +11,7 @@ import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
 
 export class ContactPage {
 
-      base64Image: string;
+      public base64Image: string;
       constructor(public navCtrl: NavController, private camera: Camera, private base64ToGallery: Base64ToGallery) {}
 
 
@@ -22,16 +22,28 @@ export class ContactPage {
         mediaType: this.camera.MediaType.PICTURE
         };
 
-    TakePicture()
+    takePicture()
     {
 
-        this.camera.getPicture(this.options).then((imageData) => {
-            // imageData is either a base64 encoded string or a file URI
-            // If it's base64:
+        this.camera.getPicture({
+            destinationType: this.camera.DestinationType.DATA_URL,
+            targetWidth: 1000,
+            targetHeight: 1000
+        }).then((imageData) => {
             this.base64Image = 'data:image/jpeg;base64,' + imageData;
         }, (err) => {
-            // Handle error
+            console.log(err);
         });
+    }
+
+    savePicture(){
+      const options: CameraOptions = {
+        quality: 100,
+        allowEdit : true,
+        sourceType: this.camera.DestinationType.DATA_URL,
+        destinationType: this.camera.DestinationType.DATA_URL,
+        encodingType: this.camera.EncodingType.JPEG,
+        mediaType: this.camera.MediaType.PICTURE
     }
 }
 
