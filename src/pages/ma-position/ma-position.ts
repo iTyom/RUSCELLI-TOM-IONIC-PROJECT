@@ -52,11 +52,9 @@ export class MaPositionPage {
          //data.coords.latitude
          //data.coords.longitude
     });
-}
 
-myGyroscope() {
     let options: GyroscopeOptions = {
-     frequency: 200
+    frequency: 200
   };
 
   this.gyroscope.getCurrent(options)
@@ -73,6 +71,8 @@ myGyroscope() {
         this.locZ = orientation.z;
      });
 }
+
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MaPositionPage');
