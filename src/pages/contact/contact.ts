@@ -10,9 +10,15 @@ import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
 })
 
 export class ContactPage {
+        app: any = {nom: String, version: Number, complement: String};
+        public base64Image: string;
 
-      public base64Image: string;
-      constructor(public navCtrl: NavController, private camera: Camera, private base64ToGallery: Base64ToGallery) {}
+
+        constructor(public navCtrl: NavController, private camera: Camera, private base64ToGallery: Base64ToGallery) {
+            this.app.nom = "Application regroupant des fonctionnalités";
+            this.app.version = 1.0;
+            this.app.complement = "Tom Ruscelli";
+        }
 
 
        options: CameraOptions = {
@@ -31,20 +37,18 @@ export class ContactPage {
             targetHeight: 1000
         }).then((imageData) => {
             this.base64Image = 'data:image/jpeg;base64,' + imageData;
+
+            this.app.base64Image = this.base64ToGallery;
+
+            this.base64ToGallery.base64ToGallery(imageData, { prefix: '_img' }).then(
+               res => console.log('Saved image to gallery ', res),
+               err => console.log('Error saving image to gallery ', err)
+          );
         }, (err) => {
             console.log(err);
         });
     }
 
-    savePicture(){
-      const options: CameraOptions = {
-        quality: 100,
-        allowEdit : true,
-        sourceType: this.camera.DestinationType.DATA_URL,
-        destinationType: this.camera.DestinationType.DATA_URL,
-        encodingType: this.camera.EncodingType.JPEG,
-        mediaType: this.camera.MediaType.PICTURE
-    }
 }
 
 
