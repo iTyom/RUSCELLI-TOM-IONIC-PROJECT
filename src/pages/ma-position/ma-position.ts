@@ -1,16 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
-import { Gyroscope, GyroscopeOrientation, GyroscopeOptions } from '@ionic-native/gyroscope';
-import {
- GoogleMaps,
- GoogleMap,
- GoogleMapsEvent,
- GoogleMapOptions,
- CameraPosition,
- MarkerOptions,
- Marker
-} from '@ionic-native/google-maps';
 
 declare var google;
 
@@ -52,14 +42,11 @@ export class MaPositionPage {
 
   constructor(public navCtrl: NavController, 
                 public navParams: NavParams, 
-                private geolocation: Geolocation, 
-                private googleMaps: GoogleMaps) {
-
-    var locationWatch:any[];
+                private geolocation: Geolocation) {
 
       this.geolocation.getCurrentPosition().then((resp) => {
-      this.location.latitude = resp.coords.latitude
-      this.location.longitude = resp.coords.longitude
+      this.location.latitude = "Latitude : " + resp.coords.latitude
+      this.location.longitude = "Longitude : " + resp.coords.longitude
     }).catch((error) => {
       console.log('Error getting location', error);
     });
@@ -75,13 +62,26 @@ export class MaPositionPage {
 
 }
 
+ ionViewDidLoad() {
+    console.log('ionViewDidLoad MaPositionPage');
+
+    this.initMap();
+  };
+
 initMap() {
     this.map = new google.maps.Map(this.mapElement.nativeElement, {
       zoom: 7,
-      center: {lat: 41.85, lng: -87.65}
+      center: {lat: 41.85, lng: -87.65},
+      mapTypeControlOptions: {
+          mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
+            'styled_map']
+        }
     });
 
+
+
     this.directionsDisplay.setMap(this.map);
+
   }
 
   calculateAndDisplayRoute() {
@@ -101,10 +101,6 @@ initMap() {
 
 
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MaPositionPage');
-
-    this.initMap();
-  };
+ 
 
 }

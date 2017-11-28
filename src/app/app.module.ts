@@ -18,20 +18,9 @@ import { Toast } from '@ionic-native/toast';
 import { Vibration } from '@ionic-native/vibration';
 import { TextToSpeech } from '@ionic-native/text-to-speech';
 import { Shake } from '@ionic-native/shake';
-import { Gyroscope, GyroscopeOrientation, GyroscopeOptions } from '@ionic-native/gyroscope';
-import { VideoCapturePlus, VideoCapturePlusOptions, MediaFile } from '@ionic-native/video-capture-plus';
-import { MediaCapture, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture';
+import { MediaCapture } from '@ionic-native/media-capture';
 import { LocalNotifications } from '@ionic-native/local-notifications';
-import {
- GoogleMaps,
- GoogleMap,
- GoogleMapsEvent,
- GoogleMapOptions,
- CameraPosition,
- MarkerOptions,
- Marker
-} from '@ionic-native/google-maps';
-import { Component } from "@angular/core/";
+
 
 
 @NgModule({
@@ -61,13 +50,10 @@ import { Component } from "@angular/core/";
     Camera,
     Base64ToGallery,
     Geolocation,
-    GoogleMaps,
     Toast,
     Vibration,
     TextToSpeech,
     Shake,
-    Gyroscope,
-    VideoCapturePlus,
     MediaCapture,
     LocalNotifications,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

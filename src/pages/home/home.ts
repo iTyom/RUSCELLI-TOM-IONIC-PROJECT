@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Toast } from '@ionic-native/toast';
 import { ToastController } from 'ionic-angular';
 import { Vibration } from '@ionic-native/vibration';
 import { TextToSpeech } from '@ionic-native/text-to-speech';
@@ -43,7 +42,7 @@ export class HomePage {
     }
 
     doShake() {
-        const watch = this.shake.startWatch(1).subscribe(() => {
+            this.shake.startWatch(1).subscribe(() => {
             // do something
             this.showToast();
         });

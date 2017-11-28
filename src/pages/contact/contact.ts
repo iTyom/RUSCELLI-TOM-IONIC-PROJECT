@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
-import { VideoCapturePlus, VideoCapturePlusOptions, MediaFile } from '@ionic-native/video-capture-plus';
+import { MediaFile } from '@ionic-native/video-capture-plus';
 import { MediaCapture, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+
 
 
 
@@ -22,7 +23,6 @@ export class ContactPage {
         constructor(public navCtrl: NavController, 
             private camera: Camera, 
             private base64ToGallery: Base64ToGallery, 
-            private videoCapturePlus: VideoCapturePlus, 
             private mediaCapture: MediaCapture, 
             private localNotifications: LocalNotifications) {
 
@@ -73,6 +73,8 @@ export class ContactPage {
             (err: CaptureError) => console.error(err)
           );
   }
+
+  
 
   doNotification() {
             this.localNotifications.schedule({
