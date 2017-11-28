@@ -25,6 +25,7 @@
     "@ionic-native/camera": "^4.3.2",
     "@ionic-native/core": "4.3.2",
     "@ionic-native/geolocation": "^4.4.0",
+    "@ionic-native/google-maps": "^4.4.2",
     "@ionic-native/gyroscope": "^4.4.2",
     "@ionic-native/local-notifications": "^4.4.2",
     "@ionic-native/media-capture": "^4.4.2",
@@ -47,6 +48,8 @@
     "cordova-plugin-device-motion": "^2.0.0",
     "cordova-plugin-file": "^5.0.0",
     "cordova-plugin-geolocation": "^3.0.0",
+    "cordova-plugin-googlemaps": "^2.1.1",
+    "cordova-plugin-googlemaps-sdk": "git+https://github.com/mapsplugin/cordova-plugin-googlemaps-sdk.git",
     "cordova-plugin-gyroscope": "^0.1.4",
     "cordova-plugin-ionic-webview": "^1.1.16",
     "cordova-plugin-media-capture": "^2.0.0",
@@ -89,7 +92,13 @@
       "cordova-plugin-shake": {},
       "cordova-plugin-gyroscope": {},
       "cordova-plugin-media-capture": {},
-      "de.appplant.cordova.plugin.local-notification": {}
+      "de.appplant.cordova.plugin.local-notification": {},
+      "cordova-plugin-googlemaps": {
+        "API_KEY_FOR_ANDROID": "AIzaSyB0RgANxi5y6OLIZvxsUfi4Py1t0kflNPs",
+        "API_KEY_FOR_IOS": "AIzaSyB0RgANxi5y6OLIZvxsUfi4Py1t0kflNPs",
+        "LOCATION_WHEN_IN_USE_DESCRIPTION": "Show your location on the map",
+        "LOCATION_ALWAYS_USAGE_DESCRIPTION": "Trace your location on the map"
+      }
     },
     "platforms": [
       "ios",

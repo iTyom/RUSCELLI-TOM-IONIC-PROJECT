@@ -26,7 +26,7 @@ export class ContactPage {
             private mediaCapture: MediaCapture, 
             private localNotifications: LocalNotifications) {
 
-                this.app.nom = "Application regroupant des fonctionnalités";
+                this.app.nom = "Application regroupant des fonctionnalitées";
                 this.app.version = 1.0;
                 this.app.complement = "Tom Ruscelli";
         }

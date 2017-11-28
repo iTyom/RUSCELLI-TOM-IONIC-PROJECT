@@ -97,4 +97,10 @@
     <allow-navigation href="http://192.168.1.64:8100" />
     <plugin name="cordova-plugin-media-capture" spec="^2.0.0" />
     <plugin name="de.appplant.cordova.plugin.local-notification" spec="^0.8.5" />
+    <plugin name="cordova-plugin-googlemaps" spec="^2.1.1">
+        <variable name="API_KEY_FOR_ANDROID" value="AIzaSyB0RgANxi5y6OLIZvxsUfi4Py1t0kflNPs" />
+        <variable name="API_KEY_FOR_IOS" value="AIzaSyB0RgANxi5y6OLIZvxsUfi4Py1t0kflNPs" />
+        <variable name="LOCATION_WHEN_IN_USE_DESCRIPTION" value="Show your location on the map" />
+        <variable name="LOCATION_ALWAYS_USAGE_DESCRIPTION" value="Trace your location on the map" />
+    </plugin>
 </widget>
